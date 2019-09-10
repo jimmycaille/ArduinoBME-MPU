@@ -1,4 +1,4 @@
-# ArduinoPIDCtrl : Simple Arduino PID Controller developped in C#
+# ArduinoBME-MPU Simple Arduino MPU9250/BME280 interface developped in C#
 
 ## Screenshots
 ![Screenshot 1](https://raw.githubusercontent.com/jimmycaille/ArduinoBME-MPU/master/Screenshots/readme.png "Screenshot 1")

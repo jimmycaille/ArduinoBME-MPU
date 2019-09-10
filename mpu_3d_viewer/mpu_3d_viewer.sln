@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.779
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mpu_3d_viewer", "mpu_3d_viewer\mpu_3d_viewer.csproj", "{F16FF095-C119-4F47-AF4B-CDE8059E64CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F16FF095-C119-4F47-AF4B-CDE8059E64CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16FF095-C119-4F47-AF4B-CDE8059E64CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16FF095-C119-4F47-AF4B-CDE8059E64CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16FF095-C119-4F47-AF4B-CDE8059E64CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB1C9B47-123C-4499-97C8-84AB2072693B}
+	EndGlobalSection
+EndGlobal

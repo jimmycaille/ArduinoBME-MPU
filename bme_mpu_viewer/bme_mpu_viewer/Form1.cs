@@ -12,6 +12,7 @@ namespace bme_mpu_viewer {
     public partial class Form1 : Form {
         public Form1() {
             InitializeComponent();
+
         }
 
         private void btnConnect_Click(object sender, EventArgs e) {
