@@ -1,0 +1,10 @@
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\bin\Debug\bme_mpu_viewer.exe.config
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\bin\Debug\bme_mpu_viewer.exe
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\bin\Debug\bme_mpu_viewer.pdb
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\obj\Debug\bme_mpu_viewer.csprojAssemblyReference.cache
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\obj\Debug\bme_mpu_viewer.Form1.resources
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\obj\Debug\bme_mpu_viewer.Properties.Resources.resources
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\obj\Debug\bme_mpu_viewer.csproj.GenerateResource.cache
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\obj\Debug\bme_mpu_viewer.csproj.CoreCompileInputs.cache
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\obj\Debug\bme_mpu_viewer.exe
+D:\git\ArduinoBME-MPU\bme_mpu_viewer\bme_mpu_viewer\obj\Debug\bme_mpu_viewer.pdb
