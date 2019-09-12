@@ -1,6 +1,6 @@
 /**
  MPU lib : https://github.com/FaBoPlatform/FaBo9AXIS-MPU9250-Library
- BME lib : adafruit bmp280 and Adafruit unified sensor
+ BME lib : adafruit bme280 and Adafruit unified sensor
 */
 
 #include <Wire.h>
@@ -24,7 +24,7 @@ Adafruit_BME280 bme; // I2C
 /**
   WIRING :
   
-  BME or
+  BME and/or
   MPU -> Nano
   
   SDA -> A4
@@ -42,14 +42,16 @@ float temp2,pres,alt,humid;
 int serialPeriod=200; //ms
 long serialTime;
 
+bool bme_detected,mpu_detected;
+
 void setup() {
   Serial.begin(9600);
   fabo_9axis.searchDevice();
   if (fabo_9axis.begin()) {
-    Serial.println("configured FaBo 9Axis I2C Brick");
+    mpu_detected=true;
+    //Serial.println("configured FaBo 9Axis I2C Brick");
   } else {
-    Serial.println("device error");
-    while(1);
+    //Serial.println("mpu device error");
   }
 
 
@@ -58,13 +60,16 @@ void setup() {
     // (you can also pass in a Wire library object like &Wire2)
     status = bme.begin();  
     if (!status) {
+      /*
         Serial.println("Could not find a valid BME280 sensor, check wiring, address, sensor ID!");
         Serial.print("SensorID was: 0x"); Serial.println(bme.sensorID(),16);
         Serial.print("        ID of 0xFF probably means a bad address, a BMP 180 or BMP 085\n");
         Serial.print("   ID of 0x56-0x58 represents a BMP 280,\n");
         Serial.print("        ID of 0x60 represents a BME 280.\n");
         Serial.print("        ID of 0x61 represents a BME 680.\n");
-        while (1);
+        */
+    }else{
+      bme_detected=true;
     }
 
         // For more details on the following scenarious, see chapter
@@ -149,16 +154,18 @@ void setup() {
 */
 }
 void loop() {
-  fabo_9axis.readAccelXYZ(&ax,&ay,&az);
-  fabo_9axis.readGyroXYZ(&gx,&gy,&gz);
-  fabo_9axis.readMagnetXYZ(&mx,&my,&mz);
-  fabo_9axis.readTemperature(&temp);
-
-  temp2= bme.readTemperature();
-  pres = bme.readPressure() / 100.0F;
-  alt  = bme.readAltitude(SEALEVELPRESSURE_HPA);
-  humid= bme.readHumidity();
-
+  if(mpu_detected){
+    fabo_9axis.readAccelXYZ(&ax,&ay,&az);
+    fabo_9axis.readGyroXYZ(&gx,&gy,&gz);
+    fabo_9axis.readMagnetXYZ(&mx,&my,&mz);
+    fabo_9axis.readTemperature(&temp);
+  }
+  if(bme_detected){
+    temp2= bme.readTemperature();
+    pres = bme.readPressure() / 100.0F;
+    alt  = bme.readAltitude(SEALEVELPRESSURE_HPA);
+    humid= bme.readHumidity();
+  }
   if(millis()>serialTime){
     serialReceive();
     serialSend();
@@ -216,6 +223,7 @@ void serialSend(){
   Serial.print(afs);
   Serial.print(" ");
   Serial.print(serialPeriod);
+  Serial.print(" ");
   Serial.print(temp2);
   Serial.print(" ");
   Serial.print(pres);
