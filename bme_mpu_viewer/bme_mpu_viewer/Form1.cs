@@ -98,13 +98,29 @@ namespace bme_mpu_viewer {
                             txtAccX.Text = split[0];
                             txtAccY.Text = split[1];
                             txtAccZ.Text = split[2];
-                            double x, y, z;
+                            double x, y, z, pitch=0, roll=0;
                             if (double.TryParse(split[0], out x) &&
                                 double.TryParse(split[1], out y) &&
                                 double.TryParse(split[2], out z)) {
                                     txtAccR.Text = Math.Sqrt(Math.Pow(x, 2) +
                                                              Math.Pow(y, 2) +
                                                              Math.Pow(z, 2)).ToString();
+                                roll = Math.Atan2(-x, Math.Sqrt(y * y + z * z));
+                                //roll = Math.Atan2(y, z);
+                                pitch  = Math.Atan2(y, Math.Sqrt(x * x + z * z));
+
+                                txtPitch.Text = (pitch * 57.3).ToString();
+                                txtRoll.Text  = (roll * 57.3).ToString() ;
+                            }
+                            double xh, yh, zh;
+                            if (double.TryParse(split[6], out xh) &&
+                                double.TryParse(split[7], out yh) &&
+                                double.TryParse(split[8], out zh)) {
+                                // yaw from mag
+                                double yh2 = (yh * Math.Cos(roll)) - (zh * Math.Sin(roll));
+                                double xh2 = (xh * Math.Cos(pitch)) + (yh * Math.Sin(roll) * Math.Sin(pitch)) + (zh * Math.Cos(roll) * Math.Sin(pitch));
+
+                                txtYaw.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
                             }
                             txtGyrX.Text = split[3];
                             txtGyrY.Text = split[4];
@@ -180,6 +196,13 @@ namespace bme_mpu_viewer {
         }
 
         private void trackSample_Scroll(object sender, EventArgs e) {
+            txtSample.Text = trackSample.Value.ToString();
+            txtSample.Text = trackSample.Value.ToString();
+            txtSample.Text = trackSample.Value.ToString();
+            txtSample.Text = trackSample.Value.ToString();
+            txtSample.Text = trackSample.Value.ToString();
+            txtSample.Text = trackSample.Value.ToString();
+            txtSample.Text = trackSample.Value.ToString();
             txtSample.Text = trackSample.Value.ToString();
         }
         //https://stackoverflow.com/questions/15805121/c-sharp-winforms-creating-a-chart-with-multiple-y-axis-3-or-more
