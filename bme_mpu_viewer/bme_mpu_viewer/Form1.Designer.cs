@@ -23,32 +23,39 @@
         /// le contenu de cette méthode avec l'éditeur de code.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series40 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series41 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series42 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series43 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series44 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series45 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series46 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series47 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series48 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea16 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series49 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series50 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series51 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series52 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series13 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series14 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series15 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series16 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtMPUtemp = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtYaw = new System.Windows.Forms.TextBox();
             this.btnClear3 = new System.Windows.Forms.Button();
             this.txtMagZ = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -67,6 +74,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.chartGyr = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtPitch = new System.Windows.Forms.TextBox();
+            this.txtRoll = new System.Windows.Forms.TextBox();
             this.btnClear1 = new System.Windows.Forms.Button();
             this.txtAccR = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -116,12 +127,36 @@
             this.btnConfig = new System.Windows.Forms.Button();
             this.boxAcc = new System.Windows.Forms.ComboBox();
             this.boxGyro = new System.Windows.Forms.ComboBox();
-            this.txtRoll = new System.Windows.Forms.TextBox();
-            this.txtPitch = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.txtYaw = new System.Windows.Forms.TextBox();
+            this.chartMag2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.txtMagZmin = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtMagYmin = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtMagXmin = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtMagZmax = new System.Windows.Forms.TextBox();
+            this.txtMagYmax = new System.Windows.Forms.TextBox();
+            this.txtMagXmax = new System.Windows.Forms.TextBox();
+            this.btnScaleMag2 = new System.Windows.Forms.Button();
+            this.txtMagZbias = new System.Windows.Forms.TextBox();
+            this.txtMagYbias = new System.Windows.Forms.TextBox();
+            this.txtMagXbias = new System.Windows.Forms.TextBox();
+            this.btnClear5 = new System.Windows.Forms.Button();
+            this.chkApplyBias = new System.Windows.Forms.CheckBox();
+            this.txtMagZdif = new System.Windows.Forms.TextBox();
+            this.txtMagYdif = new System.Windows.Forms.TextBox();
+            this.txtMagXdif = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.chkApplyScale = new System.Windows.Forms.CheckBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtMagZratio = new System.Windows.Forms.TextBox();
+            this.txtMagYratio = new System.Windows.Forms.TextBox();
+            this.txtMagXratio = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtYaw2 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -138,6 +173,7 @@
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackSample)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMag2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -201,6 +237,24 @@
             this.groupBox8.TabIndex = 10;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Magnetometer";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(6, 112);
+            this.label18.MinimumSize = new System.Drawing.Size(40, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(40, 13);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "yaw";
+            // 
+            // txtYaw
+            // 
+            this.txtYaw.Location = new System.Drawing.Point(52, 109);
+            this.txtYaw.Name = "txtYaw";
+            this.txtYaw.ReadOnly = true;
+            this.txtYaw.Size = new System.Drawing.Size(50, 20);
+            this.txtYaw.TabIndex = 12;
             // 
             // btnClear3
             // 
@@ -269,27 +323,27 @@
             // 
             // chartMag
             // 
-            chartArea13.Name = "ChartArea1";
-            this.chartMag.ChartAreas.Add(chartArea13);
-            legend13.Name = "Legend1";
-            this.chartMag.Legends.Add(legend13);
+            chartArea1.Name = "ChartArea1";
+            this.chartMag.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartMag.Legends.Add(legend1);
             this.chartMag.Location = new System.Drawing.Point(142, 16);
             this.chartMag.Name = "chartMag";
-            series40.ChartArea = "ChartArea1";
-            series40.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series40.Legend = "Legend1";
-            series40.Name = "x";
-            series41.ChartArea = "ChartArea1";
-            series41.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series41.Legend = "Legend1";
-            series41.Name = "y";
-            series42.ChartArea = "ChartArea1";
-            series42.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series42.Legend = "Legend1";
-            series42.Name = "z";
-            this.chartMag.Series.Add(series40);
-            this.chartMag.Series.Add(series41);
-            this.chartMag.Series.Add(series42);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "x";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "y";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Legend = "Legend1";
+            series3.Name = "z";
+            this.chartMag.Series.Add(series1);
+            this.chartMag.Series.Add(series2);
+            this.chartMag.Series.Add(series3);
             this.chartMag.Size = new System.Drawing.Size(254, 159);
             this.chartMag.TabIndex = 0;
             this.chartMag.Text = "chartMag";
@@ -378,27 +432,27 @@
             // 
             // chartGyr
             // 
-            chartArea14.Name = "ChartArea1";
-            this.chartGyr.ChartAreas.Add(chartArea14);
-            legend14.Name = "Legend1";
-            this.chartGyr.Legends.Add(legend14);
+            chartArea2.Name = "ChartArea1";
+            this.chartGyr.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chartGyr.Legends.Add(legend2);
             this.chartGyr.Location = new System.Drawing.Point(142, 16);
             this.chartGyr.Name = "chartGyr";
-            series43.ChartArea = "ChartArea1";
-            series43.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series43.Legend = "Legend1";
-            series43.Name = "x";
-            series44.ChartArea = "ChartArea1";
-            series44.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series44.Legend = "Legend1";
-            series44.Name = "y";
-            series45.ChartArea = "ChartArea1";
-            series45.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series45.Legend = "Legend1";
-            series45.Name = "z";
-            this.chartGyr.Series.Add(series43);
-            this.chartGyr.Series.Add(series44);
-            this.chartGyr.Series.Add(series45);
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series4.Legend = "Legend1";
+            series4.Name = "x";
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "y";
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "z";
+            this.chartGyr.Series.Add(series4);
+            this.chartGyr.Series.Add(series5);
+            this.chartGyr.Series.Add(series6);
             this.chartGyr.Size = new System.Drawing.Size(254, 159);
             this.chartGyr.TabIndex = 0;
             this.chartGyr.Text = "chartGyr";
@@ -425,6 +479,42 @@
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Accelerometer";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 146);
+            this.label17.MinimumSize = new System.Drawing.Size(40, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(40, 13);
+            this.label17.TabIndex = 12;
+            this.label17.Text = "roll";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 120);
+            this.label16.MinimumSize = new System.Drawing.Size(40, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(40, 13);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "pitch";
+            // 
+            // txtPitch
+            // 
+            this.txtPitch.Location = new System.Drawing.Point(52, 117);
+            this.txtPitch.Name = "txtPitch";
+            this.txtPitch.ReadOnly = true;
+            this.txtPitch.Size = new System.Drawing.Size(50, 20);
+            this.txtPitch.TabIndex = 10;
+            // 
+            // txtRoll
+            // 
+            this.txtRoll.Location = new System.Drawing.Point(52, 143);
+            this.txtRoll.Name = "txtRoll";
+            this.txtRoll.ReadOnly = true;
+            this.txtRoll.Size = new System.Drawing.Size(50, 20);
+            this.txtRoll.TabIndex = 9;
             // 
             // btnClear1
             // 
@@ -511,27 +601,27 @@
             // 
             // chartAcc
             // 
-            chartArea15.Name = "ChartArea1";
-            this.chartAcc.ChartAreas.Add(chartArea15);
-            legend15.Name = "Legend1";
-            this.chartAcc.Legends.Add(legend15);
+            chartArea3.Name = "ChartArea1";
+            this.chartAcc.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartAcc.Legends.Add(legend3);
             this.chartAcc.Location = new System.Drawing.Point(142, 16);
             this.chartAcc.Name = "chartAcc";
-            series46.ChartArea = "ChartArea1";
-            series46.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series46.Legend = "Legend1";
-            series46.Name = "x";
-            series47.ChartArea = "ChartArea1";
-            series47.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series47.Legend = "Legend1";
-            series47.Name = "y";
-            series48.ChartArea = "ChartArea1";
-            series48.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series48.Legend = "Legend1";
-            series48.Name = "z";
-            this.chartAcc.Series.Add(series46);
-            this.chartAcc.Series.Add(series47);
-            this.chartAcc.Series.Add(series48);
+            series7.ChartArea = "ChartArea1";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "x";
+            series8.ChartArea = "ChartArea1";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.Name = "y";
+            series9.ChartArea = "ChartArea1";
+            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series9.Legend = "Legend1";
+            series9.Name = "z";
+            this.chartAcc.Series.Add(series7);
+            this.chartAcc.Series.Add(series8);
+            this.chartAcc.Series.Add(series9);
             this.chartAcc.Size = new System.Drawing.Size(254, 159);
             this.chartAcc.TabIndex = 0;
             this.chartAcc.Text = "chartAcc";
@@ -666,33 +756,35 @@
             // 
             // chartBME
             // 
-            chartArea16.AxisY.IsStartedFromZero = false;
-            chartArea16.Name = "ChartArea1";
-            this.chartBME.ChartAreas.Add(chartArea16);
-            legend16.Name = "Legend1";
-            this.chartBME.Legends.Add(legend16);
+            chartArea4.AxisY.IsStartedFromZero = false;
+            chartArea4.Name = "ChartArea1";
+            this.chartBME.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartBME.Legends.Add(legend4);
             this.chartBME.Location = new System.Drawing.Point(142, 16);
             this.chartBME.Name = "chartBME";
-            series49.ChartArea = "ChartArea1";
-            series49.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series49.Legend = "Legend1";
-            series49.Name = "°C";
-            series50.ChartArea = "ChartArea1";
-            series50.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series50.Legend = "Legend1";
-            series50.Name = "Pa";
-            series51.ChartArea = "ChartArea1";
-            series51.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series51.Legend = "Legend1";
-            series51.Name = "Alt [m]";
-            series52.ChartArea = "ChartArea1";
-            series52.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series52.Legend = "Legend1";
-            series52.Name = "% rel";
-            this.chartBME.Series.Add(series49);
-            this.chartBME.Series.Add(series50);
-            this.chartBME.Series.Add(series51);
-            this.chartBME.Series.Add(series52);
+            series10.ChartArea = "ChartArea1";
+            series10.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series10.Legend = "Legend1";
+            series10.Name = "°C";
+            series11.ChartArea = "ChartArea1";
+            series11.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series11.Legend = "Legend1";
+            series11.Name = "Pa";
+            series11.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series12.ChartArea = "ChartArea1";
+            series12.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series12.Legend = "Legend1";
+            series12.Name = "Alt [m]";
+            series12.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            series13.ChartArea = "ChartArea1";
+            series13.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series13.Legend = "Legend1";
+            series13.Name = "% rel";
+            this.chartBME.Series.Add(series10);
+            this.chartBME.Series.Add(series11);
+            this.chartBME.Series.Add(series12);
+            this.chartBME.Series.Add(series13);
             this.chartBME.Size = new System.Drawing.Size(290, 159);
             this.chartBME.TabIndex = 9;
             this.chartBME.Text = "chartBME";
@@ -1056,68 +1148,348 @@
             this.boxGyro.TabIndex = 0;
             this.boxGyro.Text = "±250°/sec";
             // 
-            // txtRoll
+            // chartMag2
             // 
-            this.txtRoll.Location = new System.Drawing.Point(52, 143);
-            this.txtRoll.Name = "txtRoll";
-            this.txtRoll.ReadOnly = true;
-            this.txtRoll.Size = new System.Drawing.Size(50, 20);
-            this.txtRoll.TabIndex = 9;
+            chartArea5.AxisX.IsStartedFromZero = false;
+            chartArea5.AxisX.LabelStyle.Format = "###.#";
+            chartArea5.AxisY.IsStartedFromZero = false;
+            chartArea5.AxisY.LabelStyle.Format = "###.#";
+            chartArea5.Name = "ChartArea1";
+            this.chartMag2.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.chartMag2.Legends.Add(legend5);
+            this.chartMag2.Location = new System.Drawing.Point(843, 452);
+            this.chartMag2.Name = "chartMag2";
+            this.chartMag2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            series14.ChartArea = "ChartArea1";
+            series14.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series14.Legend = "Legend1";
+            series14.Name = "Mxy";
+            series14.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series14.YValuesPerPoint = 2;
+            series14.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series15.ChartArea = "ChartArea1";
+            series15.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series15.Legend = "Legend1";
+            series15.Name = "Mxz";
+            series15.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series15.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series16.ChartArea = "ChartArea1";
+            series16.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series16.Legend = "Legend1";
+            series16.Name = "Myz";
+            series16.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series16.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            this.chartMag2.Series.Add(series14);
+            this.chartMag2.Series.Add(series15);
+            this.chartMag2.Series.Add(series16);
+            this.chartMag2.Size = new System.Drawing.Size(417, 306);
+            this.chartMag2.TabIndex = 4;
+            this.chartMag2.Text = "chartMag2";
             // 
-            // txtPitch
+            // txtMagZmin
             // 
-            this.txtPitch.Location = new System.Drawing.Point(52, 117);
-            this.txtPitch.Name = "txtPitch";
-            this.txtPitch.ReadOnly = true;
-            this.txtPitch.Size = new System.Drawing.Size(50, 20);
-            this.txtPitch.TabIndex = 10;
+            this.txtMagZmin.Location = new System.Drawing.Point(518, 651);
+            this.txtMagZmin.Name = "txtMagZmin";
+            this.txtMagZmin.ReadOnly = true;
+            this.txtMagZmin.Size = new System.Drawing.Size(50, 20);
+            this.txtMagZmin.TabIndex = 19;
             // 
-            // label16
+            // label19
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 120);
-            this.label16.MinimumSize = new System.Drawing.Size(40, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(40, 13);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "pitch";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(472, 654);
+            this.label19.MinimumSize = new System.Drawing.Size(40, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(40, 13);
+            this.label19.TabIndex = 18;
+            this.label19.Text = "z";
             // 
-            // label17
+            // txtMagYmin
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 146);
-            this.label17.MinimumSize = new System.Drawing.Size(40, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(40, 13);
-            this.label17.TabIndex = 12;
-            this.label17.Text = "roll";
+            this.txtMagYmin.Location = new System.Drawing.Point(518, 625);
+            this.txtMagYmin.Name = "txtMagYmin";
+            this.txtMagYmin.ReadOnly = true;
+            this.txtMagYmin.Size = new System.Drawing.Size(50, 20);
+            this.txtMagYmin.TabIndex = 17;
             // 
-            // label18
+            // label20
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 112);
-            this.label18.MinimumSize = new System.Drawing.Size(40, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(40, 13);
-            this.label18.TabIndex = 13;
-            this.label18.Text = "yaw";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(472, 628);
+            this.label20.MinimumSize = new System.Drawing.Size(40, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(40, 13);
+            this.label20.TabIndex = 16;
+            this.label20.Text = "y";
             // 
-            // txtYaw
+            // txtMagXmin
             // 
-            this.txtYaw.Location = new System.Drawing.Point(52, 109);
-            this.txtYaw.Name = "txtYaw";
-            this.txtYaw.ReadOnly = true;
-            this.txtYaw.Size = new System.Drawing.Size(50, 20);
-            this.txtYaw.TabIndex = 12;
+            this.txtMagXmin.Location = new System.Drawing.Point(518, 599);
+            this.txtMagXmin.Name = "txtMagXmin";
+            this.txtMagXmin.ReadOnly = true;
+            this.txtMagXmin.Size = new System.Drawing.Size(50, 20);
+            this.txtMagXmin.TabIndex = 15;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(472, 602);
+            this.label21.MinimumSize = new System.Drawing.Size(40, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(40, 13);
+            this.label21.TabIndex = 14;
+            this.label21.Text = "x";
+            // 
+            // txtMagZmax
+            // 
+            this.txtMagZmax.Location = new System.Drawing.Point(574, 651);
+            this.txtMagZmax.Name = "txtMagZmax";
+            this.txtMagZmax.ReadOnly = true;
+            this.txtMagZmax.Size = new System.Drawing.Size(50, 20);
+            this.txtMagZmax.TabIndex = 22;
+            // 
+            // txtMagYmax
+            // 
+            this.txtMagYmax.Location = new System.Drawing.Point(574, 625);
+            this.txtMagYmax.Name = "txtMagYmax";
+            this.txtMagYmax.ReadOnly = true;
+            this.txtMagYmax.Size = new System.Drawing.Size(50, 20);
+            this.txtMagYmax.TabIndex = 21;
+            // 
+            // txtMagXmax
+            // 
+            this.txtMagXmax.Location = new System.Drawing.Point(574, 599);
+            this.txtMagXmax.Name = "txtMagXmax";
+            this.txtMagXmax.ReadOnly = true;
+            this.txtMagXmax.Size = new System.Drawing.Size(50, 20);
+            this.txtMagXmax.TabIndex = 20;
+            // 
+            // btnScaleMag2
+            // 
+            this.btnScaleMag2.Location = new System.Drawing.Point(809, 764);
+            this.btnScaleMag2.Name = "btnScaleMag2";
+            this.btnScaleMag2.Size = new System.Drawing.Size(70, 23);
+            this.btnScaleMag2.TabIndex = 23;
+            this.btnScaleMag2.Text = "Scale axis";
+            this.btnScaleMag2.UseVisualStyleBackColor = true;
+            this.btnScaleMag2.Click += new System.EventHandler(this.btnScaleMag2_Click);
+            // 
+            // txtMagZbias
+            // 
+            this.txtMagZbias.Location = new System.Drawing.Point(630, 651);
+            this.txtMagZbias.Name = "txtMagZbias";
+            this.txtMagZbias.ReadOnly = true;
+            this.txtMagZbias.Size = new System.Drawing.Size(50, 20);
+            this.txtMagZbias.TabIndex = 26;
+            // 
+            // txtMagYbias
+            // 
+            this.txtMagYbias.Location = new System.Drawing.Point(630, 625);
+            this.txtMagYbias.Name = "txtMagYbias";
+            this.txtMagYbias.ReadOnly = true;
+            this.txtMagYbias.Size = new System.Drawing.Size(50, 20);
+            this.txtMagYbias.TabIndex = 25;
+            // 
+            // txtMagXbias
+            // 
+            this.txtMagXbias.Location = new System.Drawing.Point(630, 599);
+            this.txtMagXbias.Name = "txtMagXbias";
+            this.txtMagXbias.ReadOnly = true;
+            this.txtMagXbias.Size = new System.Drawing.Size(50, 20);
+            this.txtMagXbias.TabIndex = 24;
+            // 
+            // btnClear5
+            // 
+            this.btnClear5.Location = new System.Drawing.Point(900, 764);
+            this.btnClear5.Name = "btnClear5";
+            this.btnClear5.Size = new System.Drawing.Size(70, 23);
+            this.btnClear5.TabIndex = 27;
+            this.btnClear5.Text = "Clear";
+            this.btnClear5.UseVisualStyleBackColor = true;
+            this.btnClear5.Click += new System.EventHandler(this.btnClear5_Click);
+            // 
+            // chkApplyBias
+            // 
+            this.chkApplyBias.AutoSize = true;
+            this.chkApplyBias.Location = new System.Drawing.Point(632, 677);
+            this.chkApplyBias.Name = "chkApplyBias";
+            this.chkApplyBias.Size = new System.Drawing.Size(74, 17);
+            this.chkApplyBias.TabIndex = 28;
+            this.chkApplyBias.Text = "Apply bias";
+            this.chkApplyBias.UseVisualStyleBackColor = true;
+            this.chkApplyBias.CheckedChanged += new System.EventHandler(this.chkApplyBias_CheckedChanged);
+            // 
+            // txtMagZdif
+            // 
+            this.txtMagZdif.Location = new System.Drawing.Point(686, 651);
+            this.txtMagZdif.Name = "txtMagZdif";
+            this.txtMagZdif.ReadOnly = true;
+            this.txtMagZdif.Size = new System.Drawing.Size(50, 20);
+            this.txtMagZdif.TabIndex = 31;
+            // 
+            // txtMagYdif
+            // 
+            this.txtMagYdif.Location = new System.Drawing.Point(686, 625);
+            this.txtMagYdif.Name = "txtMagYdif";
+            this.txtMagYdif.ReadOnly = true;
+            this.txtMagYdif.Size = new System.Drawing.Size(50, 20);
+            this.txtMagYdif.TabIndex = 30;
+            // 
+            // txtMagXdif
+            // 
+            this.txtMagXdif.Location = new System.Drawing.Point(686, 599);
+            this.txtMagXdif.Name = "txtMagXdif";
+            this.txtMagXdif.ReadOnly = true;
+            this.txtMagXdif.Size = new System.Drawing.Size(50, 20);
+            this.txtMagXdif.TabIndex = 29;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(518, 583);
+            this.label22.MinimumSize = new System.Drawing.Size(50, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(50, 13);
+            this.label22.TabIndex = 32;
+            this.label22.Text = "min";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(574, 583);
+            this.label23.MinimumSize = new System.Drawing.Size(50, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(50, 13);
+            this.label23.TabIndex = 33;
+            this.label23.Text = "max";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(630, 583);
+            this.label24.MinimumSize = new System.Drawing.Size(50, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(50, 13);
+            this.label24.TabIndex = 34;
+            this.label24.Text = "bias";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(686, 583);
+            this.label25.MinimumSize = new System.Drawing.Size(50, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(50, 13);
+            this.label25.TabIndex = 35;
+            this.label25.Text = "diff";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chkApplyScale
+            // 
+            this.chkApplyScale.AutoSize = true;
+            this.chkApplyScale.Location = new System.Drawing.Point(712, 677);
+            this.chkApplyScale.Name = "chkApplyScale";
+            this.chkApplyScale.Size = new System.Drawing.Size(80, 17);
+            this.chkApplyScale.TabIndex = 36;
+            this.chkApplyScale.Text = "Apply scale";
+            this.chkApplyScale.UseVisualStyleBackColor = true;
+            this.chkApplyScale.CheckedChanged += new System.EventHandler(this.chkApplyScale_CheckedChanged);
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(742, 583);
+            this.label26.MinimumSize = new System.Drawing.Size(50, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(50, 13);
+            this.label26.TabIndex = 40;
+            this.label26.Text = "ratio";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtMagZratio
+            // 
+            this.txtMagZratio.Location = new System.Drawing.Point(742, 651);
+            this.txtMagZratio.Name = "txtMagZratio";
+            this.txtMagZratio.ReadOnly = true;
+            this.txtMagZratio.Size = new System.Drawing.Size(50, 20);
+            this.txtMagZratio.TabIndex = 39;
+            // 
+            // txtMagYratio
+            // 
+            this.txtMagYratio.Location = new System.Drawing.Point(742, 625);
+            this.txtMagYratio.Name = "txtMagYratio";
+            this.txtMagYratio.ReadOnly = true;
+            this.txtMagYratio.Size = new System.Drawing.Size(50, 20);
+            this.txtMagYratio.TabIndex = 38;
+            // 
+            // txtMagXratio
+            // 
+            this.txtMagXratio.Location = new System.Drawing.Point(742, 599);
+            this.txtMagXratio.Name = "txtMagXratio";
+            this.txtMagXratio.ReadOnly = true;
+            this.txtMagXratio.Size = new System.Drawing.Size(50, 20);
+            this.txtMagXratio.TabIndex = 37;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(472, 698);
+            this.label27.MinimumSize = new System.Drawing.Size(40, 0);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(40, 13);
+            this.label27.TabIndex = 42;
+            this.label27.Text = "yaw";
+            // 
+            // txtYaw2
+            // 
+            this.txtYaw2.Location = new System.Drawing.Point(518, 695);
+            this.txtYaw2.Name = "txtYaw2";
+            this.txtYaw2.ReadOnly = true;
+            this.txtYaw2.Size = new System.Drawing.Size(50, 20);
+            this.txtYaw2.TabIndex = 41;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1079, 823);
+            this.ClientSize = new System.Drawing.Size(1380, 823);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.txtYaw2);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.txtMagZratio);
+            this.Controls.Add(this.txtMagYratio);
+            this.Controls.Add(this.txtMagXratio);
+            this.Controls.Add(this.chkApplyScale);
+            this.Controls.Add(this.label25);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.label22);
+            this.Controls.Add(this.txtMagZdif);
+            this.Controls.Add(this.txtMagYdif);
+            this.Controls.Add(this.txtMagXdif);
+            this.Controls.Add(this.chkApplyBias);
+            this.Controls.Add(this.btnClear5);
+            this.Controls.Add(this.txtMagZbias);
+            this.Controls.Add(this.txtMagYbias);
+            this.Controls.Add(this.txtMagXbias);
+            this.Controls.Add(this.btnScaleMag2);
+            this.Controls.Add(this.txtMagZmax);
+            this.Controls.Add(this.txtMagYmax);
+            this.Controls.Add(this.txtMagXmax);
+            this.Controls.Add(this.txtMagZmin);
+            this.Controls.Add(this.chartMag2);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.groupBox11);
+            this.Controls.Add(this.txtMagYmin);
             this.Controls.Add(this.groupBox10);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.txtMagXmin);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1145,7 +1517,9 @@
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackSample)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartMag2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1229,6 +1603,36 @@
         private System.Windows.Forms.TextBox txtRoll;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox txtYaw;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartMag2;
+        private System.Windows.Forms.TextBox txtMagZmin;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtMagYmin;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtMagXmin;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtMagZmax;
+        private System.Windows.Forms.TextBox txtMagYmax;
+        private System.Windows.Forms.TextBox txtMagXmax;
+        private System.Windows.Forms.Button btnScaleMag2;
+        private System.Windows.Forms.TextBox txtMagZbias;
+        private System.Windows.Forms.TextBox txtMagYbias;
+        private System.Windows.Forms.TextBox txtMagXbias;
+        private System.Windows.Forms.Button btnClear5;
+        private System.Windows.Forms.CheckBox chkApplyBias;
+        private System.Windows.Forms.TextBox txtMagZdif;
+        private System.Windows.Forms.TextBox txtMagYdif;
+        private System.Windows.Forms.TextBox txtMagXdif;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.CheckBox chkApplyScale;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox txtMagZratio;
+        private System.Windows.Forms.TextBox txtMagYratio;
+        private System.Windows.Forms.TextBox txtMagXratio;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox txtYaw2;
     }
 }
 
