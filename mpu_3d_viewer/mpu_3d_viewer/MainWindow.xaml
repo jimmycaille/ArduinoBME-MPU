@@ -9,11 +9,11 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Margin="208,10,0,0" >
+        <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Margin="150,10,0,0" >
             <!-- Remember to add light to the scene -->
             <helix:DefaultLights/>
         </helix:HelixViewport3D>
-        <Button x:Name="btnConnect" Content="Button" HorizontalAlignment="Left" Margin="37,64,0,0" VerticalAlignment="Top" Width="75" Click="BtnConnect_Click"/>
+        <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="37,64,0,0" VerticalAlignment="Top" Width="75" Click="BtnConnect_Click"/>
         <ComboBox x:Name="boxCOM" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
             <ComboBoxItem>COM1</ComboBoxItem>
             <ComboBoxItem>COM2</ComboBoxItem>
@@ -21,9 +21,26 @@
             <ComboBoxItem>COM4</ComboBoxItem>
             <ComboBoxItem>COM5</ComboBoxItem>
         </ComboBox>
-        <ComboBox x:Name="boxSpeed" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
-            <ComboBoxItem>9200</ComboBoxItem>
+        <ComboBox x:Name="boxSpeed" HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="5">
+            <ComboBoxItem>300</ComboBoxItem>
+            <ComboBoxItem>600</ComboBoxItem>
+            <ComboBoxItem>1200</ComboBoxItem>
+            <ComboBoxItem>2400</ComboBoxItem>
+            <ComboBoxItem>4800</ComboBoxItem>
+            <ComboBoxItem>9600</ComboBoxItem>
+            <ComboBoxItem>14400</ComboBoxItem>
+            <ComboBoxItem>19200</ComboBoxItem>
+            <ComboBoxItem>28800</ComboBoxItem>
+            <ComboBoxItem>31250</ComboBoxItem>
+            <ComboBoxItem>38400</ComboBoxItem>
+            <ComboBoxItem>57600</ComboBoxItem>
+            <ComboBoxItem>115200</ComboBoxItem>
         </ComboBox>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="txtPitch" HorizontalAlignment="Left" Height="23" Margin="70,115,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" IsEnabled="False"/>
+        <TextBox x:Name="txtRoll" HorizontalAlignment="Left" Height="23" Margin="70,143,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" IsEnabled="False"/>
+        <TextBox x:Name="txtYaw" HorizontalAlignment="Left" Height="23" Margin="70,171,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" Margin="16,116,0,0" TextWrapping="Wrap" Text="pitch" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="16,144,0,0" TextWrapping="Wrap" Text="roll" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="16,172,0,0" TextWrapping="Wrap" Text="yaw" VerticalAlignment="Top"/>
     </Grid>
 </Window>

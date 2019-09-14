@@ -12,18 +12,62 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using HelixToolkit.Wpf;
 
 namespace mpu_3d_viewer {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        //Path to the model file
+        private const string MODEL_PATH = "Model/Model.stl";
+
+        double angX, angY, angZ;
+        ModelVisual3D device3D;
         public MainWindow() {
             InitializeComponent();
+            device3D = new ModelVisual3D();
+            device3D.Content = Display3d(MODEL_PATH);
+            // Add to view port
+            viewPort3d.Children.Add(device3D);
         }
+        /// <summary>
+        /// Display 3D Model
+        /// </summary>
+        /// <param name="model">Path to the Model file</param>
+        /// <returns>3D Model Content</returns>
+        private Model3D Display3d(string model) {
+            Model3D device = null;
+            try {
+                //Adding a gesture here
+                viewPort3d.RotateGesture = new MouseGesture(MouseAction.LeftClick);
 
+                //Import 3D model file
+                ModelImporter import = new ModelImporter();
+
+                //Load the 3D model file
+                device = import.Load(model);
+            } catch (Exception e) {
+                // Handle exception in case can not file 3D model
+                MessageBox.Show("Exception Error : " + e.StackTrace);
+            }
+            return device;
+        }
+        private void performRotation() {
+            Transform3DGroup transforms = new Transform3DGroup();
+            // Rotation around X
+            transforms.Children.Add(new RotateTransform3D(new AxisAngleRotation3D(new Vector3D(1, 0, 0), angX)));
+            // Rotation around Y 
+            transforms.Children.Add(new RotateTransform3D(new AxisAngleRotation3D(new Vector3D(0, 1, 0), angY)));
+            // Rotation around Z
+            transforms.Children.Add(new RotateTransform3D(new AxisAngleRotation3D(new Vector3D(0, 0, 1), angZ)));
+            // Translate transform (if required)
+            transforms.Children.Add(new TranslateTransform3D());
+            device3D.Transform = transforms;
+        }
         bool connected = false;
         int port_timeout = 2000;
         SerialPort port;
@@ -31,6 +75,9 @@ namespace mpu_3d_viewer {
         bool firstConnect = true;
         bool continueSerialThread = true;
         private void enableControls(bool enable = true) {
+            txtPitch.IsEnabled = enable;
+            txtRoll.IsEnabled = enable;
+            txtYaw.IsEnabled = enable;
             /*
             boxCOM.Enabled = !enable;
             boxSpeed.Enabled = !enable;
@@ -61,7 +108,7 @@ namespace mpu_3d_viewer {
                 try {
                     port.Open();
                     connected = true;
-                    //btnConnect.Text = "Disconnect";
+                    btnConnect.Content = "Disconnect";
                     //enable controls
                     enableControls();
                     //start thread
@@ -87,7 +134,7 @@ namespace mpu_3d_viewer {
                 continueSerialThread = false;
                 port.Close();
                 connected = false;
-                //btnConnect.Text = "Connect";
+                btnConnect.Content = "Connect";
                 //disable controls
                 enableControls(false);
             }
@@ -112,17 +159,11 @@ namespace mpu_3d_viewer {
                         //update ui
                         Dispatcher.Invoke(new Action(()=> {
 
-                            /*
+                            
                             //boxes
-                            txtAccX.Text = split[0];
-                            txtAccY.Text = split[1];
-                            txtAccZ.Text = split[2];
                             if (double.TryParse(split[0], out x) &&
                                 double.TryParse(split[1], out y) &&
                                 double.TryParse(split[2], out z)) {
-                                txtAccR.Text = Math.Sqrt(Math.Pow(x, 2) +
-                                                         Math.Pow(y, 2) +
-                                                         Math.Pow(z, 2)).ToString();
                                 roll = Math.Atan2(-x, Math.Sqrt(y * y + z * z));
                                 //roll = Math.Atan2(y, z);
                                 pitch = Math.Atan2(y, Math.Sqrt(x * x + z * z));
@@ -141,63 +182,30 @@ namespace mpu_3d_viewer {
 
                                 txtYaw.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
                             }
-                            txtGyrX.Text = split[3];
-                            txtGyrY.Text = split[4];
-                            txtGyrZ.Text = split[5];
-                            txtMagX.Text = split[6];
-                            txtMagY.Text = split[7];
-                            txtMagZ.Text = split[8];
-                            txtMPUtemp.Text = split[9];
-                            //gfs afs
-                            txtSample.Text = split[12];
-                            txtBMEtemp.Text = split[13];
-                            txtPres.Text = split[14];
-                            txtAlt.Text = split[15];
-                            txtHumid.Text = split[16];
                             if (firstConnect) {
                                 firstConnect = false;
-                                trackSample.Value = Int32.Parse(split[12]);
+                                //trackSample.Value = Int32.Parse(split[12]);
                             }
-                            //charts
-                            chartAcc.Series[0].Points.AddY(split[0]);
-                            chartAcc.Series[1].Points.AddY(split[1]);
-                            chartAcc.Series[2].Points.AddY(split[2]);
-                            chartGyr.Series[0].Points.AddY(split[3]);
-                            chartGyr.Series[1].Points.AddY(split[4]);
-                            chartGyr.Series[2].Points.AddY(split[5]);
-                            chartMag.Series[0].Points.AddY(split[6]);
-                            chartMag.Series[1].Points.AddY(split[7]);
-                            chartMag.Series[2].Points.AddY(split[8]);
-                            chartBME.Series[0].Points.AddY(split[13]);
-                            chartBME.Series[1].Points.AddY(split[14]);
-                            chartBME.Series[2].Points.AddY(split[15]);
-                            chartBME.Series[3].Points.AddY(split[16]);
 
                             //mag2
 
                             if (xh < magXmin) {
                                 magXmin = xh;
-                                txtMagXmin.Text = magXmin.ToString();
                             }
                             if (xh > magXmax) {
                                 magXmax = xh;
-                                txtMagXmax.Text = magXmax.ToString();
                             }
                             if (yh < magYmin) {
                                 magYmin = yh;
-                                txtMagYmin.Text = magYmin.ToString();
                             }
                             if (yh > magYmax) {
                                 magYmax = yh;
-                                txtMagYmax.Text = magYmax.ToString();
                             }
                             if (zh < magZmin) {
                                 magZmin = zh;
-                                txtMagZmin.Text = magZmin.ToString();
                             }
                             if (zh > magZmax) {
                                 magZmax = zh;
-                                txtMagZmax.Text = magZmax.ToString();
                             }
 
                             //https://github.com/kriswiner/MPU6050/wiki/Simple-and-Effective-Magnetometer-Calibration
@@ -206,21 +214,10 @@ namespace mpu_3d_viewer {
                             magYbias = (magYmin + magYmax) / 2;
                             magZbias = (magZmin + magZmax) / 2;
 
-                            txtMagXbias.Text = magXbias.ToString();
-                            txtMagYbias.Text = magYbias.ToString();
-                            txtMagZbias.Text = magZbias.ToString();
-
-                            txtMagXdif.Text = ((magXmax - magXmin) / 2).ToString();
-                            txtMagYdif.Text = ((magYmax - magYmin) / 2).ToString();
-                            txtMagZdif.Text = ((magZmax - magZmin) / 2).ToString();
-
                             double magXscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magXmax - magXmin) / 2);
                             double magYscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magYmax - magYmin) / 2);
                             double magZscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magZmax - magZmin) / 2);
-
-                            txtMagXratio.Text = magXscale.ToString();
-                            txtMagYratio.Text = magYscale.ToString();
-                            txtMagZratio.Text = magZscale.ToString();
+                            
 
                             //apply bias ONLY FOR CHARMAG2, other are raw values !
                             if (applyMagBias) {
@@ -239,12 +236,13 @@ namespace mpu_3d_viewer {
                             yh2 = (yh * Math.Cos(roll)) - (zh * Math.Sin(roll));
                             xh2 = (xh * Math.Cos(pitch)) + (yh * Math.Sin(roll) * Math.Sin(pitch)) + (zh * Math.Cos(roll) * Math.Sin(pitch));
 
-                            txtYaw2.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
+                            //txtYaw2.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
 
-                            chartMag2.Series[0].Points.AddXY(xh, yh);
-                            chartMag2.Series[1].Points.AddXY(xh, zh);
-                            chartMag2.Series[2].Points.AddXY(yh, zh);
-                            */
+
+                            angX = -roll * 57.3;
+                            angY = pitch * 57.3;
+                            performRotation();
+                            
                         }));
                     }
                 } catch {

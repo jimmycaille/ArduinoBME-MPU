@@ -15,6 +15,5 @@ D:\git\ArduinoBME-MPU\mpu_3d_viewer\mpu_3d_viewer\obj\Debug\mpu_3d_viewer.exe
 D:\git\ArduinoBME-MPU\mpu_3d_viewer\mpu_3d_viewer\obj\Debug\mpu_3d_viewer.pdb
 D:\git\ArduinoBME-MPU\mpu_3d_viewer\mpu_3d_viewer\bin\Debug\HelixToolkit.dll
 D:\git\ArduinoBME-MPU\mpu_3d_viewer\mpu_3d_viewer\bin\Debug\HelixToolkit.Wpf.dll
-D:\git\ArduinoBME-MPU\mpu_3d_viewer\mpu_3d_viewer\bin\Debug\HelixToolkit.xml
-D:\git\ArduinoBME-MPU\mpu_3d_viewer\mpu_3d_viewer\bin\Debug\HelixToolkit.Wpf.xml
 D:\git\ArduinoBME-MPU\mpu_3d_viewer\mpu_3d_viewer\obj\Debug\mpu_3d_viewer.csproj.CopyComplete
+D:\git\ArduinoBME-MPU\mpu_3d_viewer\mpu_3d_viewer\obj\Debug\mpu_3d_viewer_Content.g.cs
