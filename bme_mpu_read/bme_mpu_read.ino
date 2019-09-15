@@ -39,6 +39,8 @@ FaBo9Axis fabo_9axis;
 byte gfs,afs;
 float ax,ay,az,gx,gy,gz,mx,my,mz,temp;
 float temp2,pres,alt,humid;
+int bmeMode, bmeSampleT, bmeSampleP, bmeSampleH, bmeFilter, bmeStandby;
+
 int serialPeriod=200; //ms
 long serialTime;
 
@@ -195,6 +197,14 @@ void serialReceive(){
     gfs = getValue(input,' ',1).toInt() < 4 ? getValue(input,' ',1).toInt() : 0;
     afs = getValue(input,' ',2).toInt() < 4 ? getValue(input,' ',2).toInt() : 0;
     fabo_9axis.configMPU9250(gfs,afs);
+
+    bmeMode   =getValue(input,' ',3).toInt() < 4 ? getValue(input,' ',3).toInt() : 0;
+    bmeSampleT=getValue(input,' ',4).toInt() < 6 ? getValue(input,' ',4).toInt() : 0;
+    bmeSampleP=getValue(input,' ',5).toInt() < 6 ? getValue(input,' ',5).toInt() : 0;
+    bmeSampleH=getValue(input,' ',6).toInt() < 6 ? getValue(input,' ',6).toInt() : 0;
+    bmeFilter =getValue(input,' ',7).toInt() < 5 ? getValue(input,' ',7).toInt() : 0;
+    bmeStandby=getValue(input,' ',8).toInt() < 8 ? getValue(input,' ',8).toInt() : 0;
+    bme.setSampling(bmeMode, bmeSampleT, bmeSampleP, bmeSampleH, bmeFilter, bmeStandby);
   }
 }
 void serialSend(){

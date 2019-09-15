@@ -12,6 +12,8 @@
         <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Margin="150,10,0,0" >
             <!-- Remember to add light to the scene -->
             <helix:DefaultLights/>
+            <ModelVisual3D x:Name="foo"/>
+            <helix:GridLinesVisual3D Width="300" Length="300" MinorDistance="10" MajorDistance="10" Thickness="0.20"/>
         </helix:HelixViewport3D>
         <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="37,64,0,0" VerticalAlignment="Top" Width="75" Click="BtnConnect_Click"/>
         <ComboBox x:Name="boxCOM" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">

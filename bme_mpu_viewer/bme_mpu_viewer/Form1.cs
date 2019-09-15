@@ -36,8 +36,8 @@ namespace bme_mpu_viewer {
             boxGyro.Enabled  = enable;
             boxAcc.Enabled   = enable;
 
-            boxOSAcc.Enabled  = enable;
-            boxOSGyro.Enabled = enable;
+            boxOSHum.Enabled  = enable;
+            boxOSPres.Enabled = enable;
             boxOSTemp.Enabled = enable;
 
             boxIIR.Enabled     = enable;
@@ -137,13 +137,13 @@ namespace bme_mpu_viewer {
                             txtMagZ.Text = split[8];
                             txtMPUtemp.Text = split[9];
                             //gfs afs
-                            txtSample.Text = split[12];
                             txtBMEtemp.Text = split[13];
                             txtPres.Text = split[14];
                             txtAlt.Text = split[15];
                             txtHumid.Text = split[16];
                             if (firstConnect) {
                                 firstConnect = false;
+                                txtSample.Text = split[12];
                                 trackSample.Value = Int32.Parse(split[12]);
                             }
                             //charts
@@ -280,7 +280,7 @@ namespace bme_mpu_viewer {
         }
 
         private void btnConfig_Click(object sender, EventArgs e) {
-            String output = ""; //     TODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODOTODO
+            String output = trackSample.Value + " " + boxGyro.SelectedIndex + " " + boxAcc.SelectedIndex + " " + boxMode.SelectedIndex + " " + boxOSTemp.SelectedIndex + " " + boxOSPres.SelectedIndex + " " + boxOSHum.SelectedIndex + " " + boxIIR.SelectedIndex + " " + boxStandby.SelectedIndex;
             Console.WriteLine(output);
 
             if (connected) {
