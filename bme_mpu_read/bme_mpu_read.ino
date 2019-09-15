@@ -38,6 +38,8 @@ Adafruit_BME280 bme; // I2C
 FaBo9Axis fabo_9axis;
 byte gfs,afs;
 float ax,ay,az,gx,gy,gz,mx,my,mz,temp;
+float mx_s=1.0f,my_s=1.0f,mz_s=1.0f;//scale
+float mx_b=0.0f,my_b=0.0f,mz_b=0.0f;//bias
 float temp2,pres,alt,humid;
 int bmeMode, bmeSampleT, bmeSampleP, bmeSampleH, bmeFilter, bmeStandby;
 
@@ -161,8 +163,13 @@ void loop() {
     fabo_9axis.readGyroXYZ(&gx,&gy,&gz);
     fabo_9axis.readMagnetXYZ(&mx,&my,&mz);
     fabo_9axis.readTemperature(&temp);
+
+    mx=(mx-mx_b)*mx_s;
+    my=(my-my_b)*my_s;
+    mz=(mz-mz_b)*mz_s;
   }
   if(bme_detected){
+    if(bmeMode == 1 || bmeMode == 2) bme.takeForcedMeasurement();
     temp2= bme.readTemperature();
     pres = bme.readPressure() / 100.0F;
     alt  = bme.readAltitude(SEALEVELPRESSURE_HPA);
@@ -197,48 +204,54 @@ void serialReceive(){
     gfs = getValue(input,' ',1).toInt() < 4 ? getValue(input,' ',1).toInt() : 0;
     afs = getValue(input,' ',2).toInt() < 4 ? getValue(input,' ',2).toInt() : 0;
     fabo_9axis.configMPU9250(gfs,afs);
+    mx_b = getValue(input,' ',3).toFloat();
+    my_b = getValue(input,' ',4).toFloat();
+    mz_b = getValue(input,' ',5).toFloat();
+    mx_s = getValue(input,' ',6).toFloat(); //DONT WORK DONT WORK DONT WORK DONT WORK DONT WORK 
+    my_s = getValue(input,' ',7).toFloat();
+    mz_s = getValue(input,' ',8).toFloat();
 
-    bmeMode   =getValue(input,' ',3).toInt() < 4 ? getValue(input,' ',3).toInt() : 0;
-    bmeSampleT=getValue(input,' ',4).toInt() < 6 ? getValue(input,' ',4).toInt() : 0;
-    bmeSampleP=getValue(input,' ',5).toInt() < 6 ? getValue(input,' ',5).toInt() : 0;
-    bmeSampleH=getValue(input,' ',6).toInt() < 6 ? getValue(input,' ',6).toInt() : 0;
-    bmeFilter =getValue(input,' ',7).toInt() < 5 ? getValue(input,' ',7).toInt() : 0;
-    bmeStandby=getValue(input,' ',8).toInt() < 8 ? getValue(input,' ',8).toInt() : 0;
+    bmeMode   =getValue(input,' ',9).toInt() < 4 ? getValue(input,' ',9).toInt() : 0;
+    bmeSampleT=getValue(input,' ',10).toInt() < 6 ? getValue(input,' ',10).toInt() : 0;
+    bmeSampleP=getValue(input,' ',11).toInt() < 6 ? getValue(input,' ',11).toInt() : 0;
+    bmeSampleH=getValue(input,' ',12).toInt() < 6 ? getValue(input,' ',12).toInt() : 0;
+    bmeFilter =getValue(input,' ',13).toInt() < 5 ? getValue(input,' ',13).toInt() : 0;
+    bmeStandby=getValue(input,' ',14).toInt() < 8 ? getValue(input,' ',14).toInt() : 0;
     bme.setSampling(bmeMode, bmeSampleT, bmeSampleP, bmeSampleH, bmeFilter, bmeStandby);
   }
 }
-void serialSend(){
-  Serial.print(ax);
+void serialSend(){ //BEWARE OF BUFFER SIZE
+  Serial.print(ax,2);
   Serial.print(" ");
-  Serial.print(ay);
+  Serial.print(ay,2);
   Serial.print(" ");
-  Serial.print(az);
+  Serial.print(az,2);
   Serial.print(" ");
-  Serial.print(gx);
+  Serial.print(gx,2);
   Serial.print(" ");
-  Serial.print(gy);
+  Serial.print(gy,2);
   Serial.print(" ");
-  Serial.print(gz);
+  Serial.print(gz,2);
   Serial.print(" ");
-  Serial.print(mx);
+  Serial.print(mx,2);
   Serial.print(" ");
-  Serial.print(my);
+  Serial.print(my,2);
   Serial.print(" ");
-  Serial.print(mz);
+  Serial.print(mz,2);
   Serial.print(" ");
-  Serial.print(temp);
+  Serial.print(temp,2);
   Serial.print(" ");
-  Serial.print(gfs);
+  Serial.print(gfs,2);
   Serial.print(" ");
-  Serial.print(afs);
+  Serial.print(afs,2);
   Serial.print(" ");
   Serial.print(serialPeriod);
   Serial.print(" ");
-  Serial.print(temp2);
+  Serial.print(temp2,2);
   Serial.print(" ");
-  Serial.print(pres);
+  Serial.print(pres,2);
   Serial.print(" ");
-  Serial.print(alt);
+  Serial.print(alt,2);
   Serial.print(" ");
-  Serial.println(humid);
+  Serial.println(humid,2);
 }

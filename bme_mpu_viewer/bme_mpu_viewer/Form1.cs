@@ -17,6 +17,9 @@ namespace bme_mpu_viewer {
             InitializeComponent();
 
         }
+        private void Form1_Close(object sender, EventArgs e) {
+            continueSerialThread = false;
+        }
         bool connected = false;
         int port_timeout = 2000;
         SerialPort port;
@@ -88,6 +91,7 @@ namespace bme_mpu_viewer {
         double magXmin = 32767, magXmax = -32768, magXbias = 0,
                magYmin = 32767, magYmax = -32768, magYbias = 0,
                magZmin = 32767, magZmax = -32768, magZbias = 0;
+        double magXscale=1.0, magYscale=1.0, magZscale=1.0;
         bool applyMagBias, applyMagScale;
         private void serialThreadFct() {
             double x, y, z, pitch = 0, roll = 0;
@@ -96,6 +100,8 @@ namespace bme_mpu_viewer {
             while (continueSerialThread) {
                 try {
                     String input = port.ReadLine();
+                    Console.WriteLine(input); //DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG DEBUG 
+
                     String[] split = input.Split(' ');
 
                     if (split.Length == 17) {
@@ -202,9 +208,9 @@ namespace bme_mpu_viewer {
                             txtMagYdif.Text = ((magYmax - magYmin) / 2).ToString();
                             txtMagZdif.Text = ((magZmax - magZmin) / 2).ToString();
 
-                            double magXscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magXmax - magXmin) / 2);
-                            double magYscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magYmax - magYmin) / 2);
-                            double magZscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magZmax - magZmin) / 2);
+                            magXscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magXmax - magXmin) / 2);
+                            magYscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magYmax - magYmin) / 2);
+                            magZscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magZmax - magZmin) / 2);
 
                             txtMagXratio.Text = magXscale.ToString();
                             txtMagYratio.Text = magYscale.ToString();
@@ -256,6 +262,14 @@ namespace bme_mpu_viewer {
             applyMagBias = chkApplyBias.Checked;
         }
 
+        private void boxMode_SelectedIndexChanged(object sender, EventArgs e) {
+            if(boxMode.SelectedIndex == 3) {
+                boxStandby.Enabled = true;
+            } else {
+                boxStandby.Enabled = false;
+            }
+        }
+
         private void chkApplyScale_CheckedChanged(object sender, EventArgs e) {
             applyMagScale = chkApplyScale.Checked;
         }
@@ -280,7 +294,12 @@ namespace bme_mpu_viewer {
         }
 
         private void btnConfig_Click(object sender, EventArgs e) {
-            String output = trackSample.Value + " " + boxGyro.SelectedIndex + " " + boxAcc.SelectedIndex + " " + boxMode.SelectedIndex + " " + boxOSTemp.SelectedIndex + " " + boxOSPres.SelectedIndex + " " + boxOSHum.SelectedIndex + " " + boxIIR.SelectedIndex + " " + boxStandby.SelectedIndex;
+            String output = "";
+            if (chkApplyMagCalib.Checked) { //ARDUINO BUFFER IS ONLY 64B, BE AWARE OF THAT !
+                output += trackSample.Value + " " + boxGyro.SelectedIndex + " " + boxAcc.SelectedIndex + " " + String.Format("{0:0.##}", magXbias) + "f " + String.Format("{0:0.##}", magYbias) + "f " + String.Format("{0:0.##}", magZbias) + "f " + String.Format("{0:0.##}", magXscale)  + "f " + String.Format("{0:0.##}", magYscale) + "f " + String.Format("{0:0.##}", magZscale) + "f " + boxMode.SelectedIndex + " " + boxOSTemp.SelectedIndex + " " + boxOSPres.SelectedIndex + " " + boxOSHum.SelectedIndex + " " + boxIIR.SelectedIndex + " " + boxStandby.SelectedIndex;
+            } else {
+                output += trackSample.Value + " " + boxGyro.SelectedIndex + " " + boxAcc.SelectedIndex + " " + 0.0 + " " + 0.0 + " " + 0.0 + " " + 1.0 + " " + 1.0 + " " + 1.0 + " " + boxMode.SelectedIndex + " " + boxOSTemp.SelectedIndex + " " + boxOSPres.SelectedIndex + " " + boxOSHum.SelectedIndex + " " + boxIIR.SelectedIndex + " " + boxStandby.SelectedIndex;
+            }
             Console.WriteLine(output);
 
             if (connected) {
