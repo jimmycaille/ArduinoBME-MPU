@@ -48,6 +48,12 @@ long serialTime;
 
 bool bme_detected,mpu_detected;
 
+
+
+
+float mx0,my0,mz0;
+
+
 void setup() {
   Serial.begin(9600);
   fabo_9axis.searchDevice();
@@ -149,33 +155,31 @@ void setup() {
     // P_ovs = 4
     // = 11.5ms + 0.5ms standby
     delayTime = 12;
-
-
-
-    //in loop :
-    // Only needed in forced mode! In normal mode, you can remove the next line.
-    bme.takeForcedMeasurement(); // has no effect in normal mode
 */
 }
 void loop() {
-  if(mpu_detected){
-    fabo_9axis.readAccelXYZ(&ax,&ay,&az);
-    fabo_9axis.readGyroXYZ(&gx,&gy,&gz);
-    fabo_9axis.readMagnetXYZ(&mx,&my,&mz);
-    fabo_9axis.readTemperature(&temp);
-
-    mx=(mx-mx_b)*mx_s;
-    my=(my-my_b)*my_s;
-    mz=(mz-mz_b)*mz_s;
-  }
-  if(bme_detected){
-    if(bmeMode == 1 || bmeMode == 2) bme.takeForcedMeasurement();
-    temp2= bme.readTemperature();
-    pres = bme.readPressure() / 100.0F;
-    alt  = bme.readAltitude(SEALEVELPRESSURE_HPA);
-    humid= bme.readHumidity();
-  }
   if(millis()>serialTime){
+    if(mpu_detected){
+      fabo_9axis.readAccelXYZ(&ax,&ay,&az);
+      fabo_9axis.readGyroXYZ(&gx,&gy,&gz);
+      fabo_9axis.readMagnetXYZ(&mx,&my,&mz);
+      fabo_9axis.readTemperature(&temp);
+  
+      mx0=(mx-mx_b)*mx_s; //TRY TO USE OTHER VARS, NOT WRITTEN BY MPU LIB TRY TO USE OTHER VARS, NOT WRITTEN BY MPU LIB
+      my0=(my-my_b)*my_s;
+      mz0=(mz-mz_b)*mz_s;
+      /*
+      mx0=mx;
+      my0=my;
+      mz0=mz;*/
+    }
+    if(bme_detected){
+      if(bmeMode == 1 || bmeMode == 2) bme.takeForcedMeasurement();
+      temp2= bme.readTemperature();
+      pres = bme.readPressure() / 100.0F;
+      alt  = bme.readAltitude(SEALEVELPRESSURE_HPA);
+      humid= bme.readHumidity();
+    }
     serialReceive();
     serialSend();
     serialTime+=serialPeriod;
@@ -200,23 +204,58 @@ String getValue(String data, char separator, int index){
 void serialReceive(){
   if(Serial.available()){
     String input = Serial.readStringUntil("\n");
+
+    //get each values
     serialPeriod = getValue(input,' ',0).toInt();
     gfs = getValue(input,' ',1).toInt() < 4 ? getValue(input,' ',1).toInt() : 0;
     afs = getValue(input,' ',2).toInt() < 4 ? getValue(input,' ',2).toInt() : 0;
-    fabo_9axis.configMPU9250(gfs,afs);
     mx_b = getValue(input,' ',3).toFloat();
     my_b = getValue(input,' ',4).toFloat();
     mz_b = getValue(input,' ',5).toFloat();
-    mx_s = getValue(input,' ',6).toFloat(); //DONT WORK DONT WORK DONT WORK DONT WORK DONT WORK 
+    mx_s = getValue(input,' ',6).toFloat();
     my_s = getValue(input,' ',7).toFloat();
     mz_s = getValue(input,' ',8).toFloat();
-
     bmeMode   =getValue(input,' ',9).toInt() < 4 ? getValue(input,' ',9).toInt() : 0;
     bmeSampleT=getValue(input,' ',10).toInt() < 6 ? getValue(input,' ',10).toInt() : 0;
     bmeSampleP=getValue(input,' ',11).toInt() < 6 ? getValue(input,' ',11).toInt() : 0;
     bmeSampleH=getValue(input,' ',12).toInt() < 6 ? getValue(input,' ',12).toInt() : 0;
     bmeFilter =getValue(input,' ',13).toInt() < 5 ? getValue(input,' ',13).toInt() : 0;
     bmeStandby=getValue(input,' ',14).toInt() < 8 ? getValue(input,' ',14).toInt() : 0;
+
+    Serial.print("RCV: ");
+    Serial.print(serialPeriod);
+    Serial.print(" ");
+    Serial.print(gfs);
+    Serial.print(" ");
+    Serial.print(afs);
+    Serial.print(" ");
+    Serial.print(mx_b);
+    Serial.print(" ");
+    Serial.print(my_b);
+    Serial.print(" ");
+    Serial.print(mz_b);
+    Serial.print(" ");
+    Serial.print(mx_s);
+    Serial.print(" ");
+    Serial.print(my_s);
+    Serial.print(" ");
+    Serial.print(mz_s);
+    Serial.print(" ");
+    Serial.print(bmeMode);
+    Serial.print(" ");
+    Serial.print(bmeSampleT);
+    Serial.print(" ");
+    Serial.print(bmeSampleP);
+    Serial.print(" ");
+    Serial.print(bmeSampleH);
+    Serial.print(" ");
+    Serial.print(bmeFilter);
+    Serial.print(" ");
+    Serial.print(bmeStandby);
+    Serial.println(" END");
+    
+    //configure sensors
+    fabo_9axis.configMPU9250(gfs,afs);
     bme.setSampling(bmeMode, bmeSampleT, bmeSampleP, bmeSampleH, bmeFilter, bmeStandby);
   }
 }
@@ -233,11 +272,11 @@ void serialSend(){ //BEWARE OF BUFFER SIZE
   Serial.print(" ");
   Serial.print(gz,2);
   Serial.print(" ");
-  Serial.print(mx,2);
+  Serial.print(mx0,2);
   Serial.print(" ");
-  Serial.print(my,2);
+  Serial.print(my0,2);
   Serial.print(" ");
-  Serial.print(mz,2);
+  Serial.print(mz0,2);
   Serial.print(" ");
   Serial.print(temp,2);
   Serial.print(" ");

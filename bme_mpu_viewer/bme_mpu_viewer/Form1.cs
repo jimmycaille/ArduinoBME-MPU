@@ -258,6 +258,12 @@ namespace bme_mpu_viewer {
             chartGyr.Series[2].Points.Clear();
         }
 
+        private void btnClearMinMax_Click(object sender, EventArgs e) {
+            magXmin = 32767; magXmax = -32768;
+            magYmin = 32767; magYmax = -32768;
+            magZmin = 32767; magZmax = -32768;
+        }
+
         private void chkApplyBias_CheckedChanged(object sender, EventArgs e) {
             applyMagBias = chkApplyBias.Checked;
         }
@@ -296,14 +302,14 @@ namespace bme_mpu_viewer {
         private void btnConfig_Click(object sender, EventArgs e) {
             String output = "";
             if (chkApplyMagCalib.Checked) { //ARDUINO BUFFER IS ONLY 64B, BE AWARE OF THAT !
-                output += trackSample.Value + " " + boxGyro.SelectedIndex + " " + boxAcc.SelectedIndex + " " + String.Format("{0:0.##}", magXbias) + "f " + String.Format("{0:0.##}", magYbias) + "f " + String.Format("{0:0.##}", magZbias) + "f " + String.Format("{0:0.##}", magXscale)  + "f " + String.Format("{0:0.##}", magYscale) + "f " + String.Format("{0:0.##}", magZscale) + "f " + boxMode.SelectedIndex + " " + boxOSTemp.SelectedIndex + " " + boxOSPres.SelectedIndex + " " + boxOSHum.SelectedIndex + " " + boxIIR.SelectedIndex + " " + boxStandby.SelectedIndex;
+                output += trackSample.Value + " " + boxGyro.SelectedIndex + " " + boxAcc.SelectedIndex + " " + String.Format("{0:0.#}", magXbias) + " " + String.Format("{0:0.#}", magYbias) + " " + String.Format("{0:0.#}", magZbias) + " " + String.Format("{0:0.#}", magXscale)  + " " + String.Format("{0:0.#}", magYscale) + " " + String.Format("{0:0.#}", magZscale) + " " + boxMode.SelectedIndex + " " + boxOSTemp.SelectedIndex + " " + boxOSPres.SelectedIndex + " " + boxOSHum.SelectedIndex + " " + boxIIR.SelectedIndex + " " + boxStandby.SelectedIndex;
             } else {
                 output += trackSample.Value + " " + boxGyro.SelectedIndex + " " + boxAcc.SelectedIndex + " " + 0.0 + " " + 0.0 + " " + 0.0 + " " + 1.0 + " " + 1.0 + " " + 1.0 + " " + boxMode.SelectedIndex + " " + boxOSTemp.SelectedIndex + " " + boxOSPres.SelectedIndex + " " + boxOSHum.SelectedIndex + " " + boxIIR.SelectedIndex + " " + boxStandby.SelectedIndex;
             }
             Console.WriteLine(output);
 
             if (connected) {
-                port.Write(output);
+                port.WriteLine(output);
             }
         }
 

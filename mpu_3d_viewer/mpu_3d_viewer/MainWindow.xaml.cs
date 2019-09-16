@@ -180,7 +180,7 @@ namespace mpu_3d_viewer {
                                 yh2 = (yh * Math.Cos(roll)) - (zh * Math.Sin(roll));
                                 xh2 = (xh * Math.Cos(pitch)) + (yh * Math.Sin(roll) * Math.Sin(pitch)) + (zh * Math.Cos(roll) * Math.Sin(pitch));
 
-                                txtYaw.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
+                                //txtYaw.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
                             }
                             if (firstConnect) {
                                 firstConnect = false;
@@ -236,8 +236,8 @@ namespace mpu_3d_viewer {
                             yh2 = (yh * Math.Cos(roll)) - (zh * Math.Sin(roll));
                             xh2 = (xh * Math.Cos(pitch)) + (yh * Math.Sin(roll) * Math.Sin(pitch)) + (zh * Math.Cos(roll) * Math.Sin(pitch));
 
-                            //txtYaw2.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
-
+                            angZ = Math.Atan2(yh2, xh2) * 57.3;
+                            txtYaw.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
 
                             angX = -roll * 57.3;
                             angY = pitch * 57.3;
