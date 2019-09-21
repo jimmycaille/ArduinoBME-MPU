@@ -1,6 +1,7 @@
 /**
  MPU lib : https://github.com/FaBoPlatform/FaBo9AXIS-MPU9250-Library
  BME lib : adafruit bme280 and Adafruit unified sensor
+ BH1750  : by PeterEmbedded
 */
 
 #include <Wire.h>
@@ -21,6 +22,16 @@ Adafruit_BME280 bme; // I2C
 //Adafruit_BME280 bme(BME_CS); // hardware SPI
 //Adafruit_BME280 bme(BME_CS, BME_MOSI, BME_MISO, BME_SCK); // software SPI
 
+
+
+#include <BH1750FVI.h>
+BH1750FVI LightSensor(BH1750FVI::k_DevModeContLowRes);
+
+
+// HC-SR03 Define Trig and Echo pin:
+#define trigPin 2
+#define echoPin 3
+
 /**
   WIRING :
   
@@ -31,7 +42,10 @@ Adafruit_BME280 bme; // I2C
   SCL -> A5
   GND -> GND
   VCC -> 5V
-  
+
+  HC-SR03
+  d2 -> trig
+  d3 -> echo
   
 */
 
@@ -42,6 +56,10 @@ float mx_s=1.0f,my_s=1.0f,mz_s=1.0f;//scale
 float mx_b=0.0f,my_b=0.0f,mz_b=0.0f;//bias
 float temp2,pres,alt,humid;
 int bmeMode, bmeSampleT, bmeSampleP, bmeSampleH, bmeFilter, bmeStandby;
+
+int lux;
+
+double distance;
 
 int serialPeriod=200; //ms
 long serialTime;
@@ -55,6 +73,9 @@ float mx0,my0,mz0;
 
 
 void setup() {
+    pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  
   Serial.begin(9600);
   fabo_9axis.searchDevice();
   if (fabo_9axis.begin()) {
@@ -64,6 +85,20 @@ void setup() {
     //Serial.println("mpu device error");
   }
 
+LightSensor.begin();//error handling ?
+LightSensor.SetMode(BH1750FVI::k_DevModeContHighRes);
+
+/*
+ * 
+ *     typedef enum eDeviceMode {
+      k_DevModeContHighRes     = 0x10,
+      k_DevModeContHighRes2    = 0x11,
+      k_DevModeContLowRes      = 0x13,
+      k_DevModeOneTimeHighRes  = 0x20,
+      k_DevModeOneTimeHighRes2 = 0x21,
+      k_DevModeOneTimeLowRes   = 0x23
+    } eDeviceMode_t;
+ */
 
     unsigned status;
     // default settings
@@ -159,13 +194,29 @@ void setup() {
 }
 void loop() {
   if(millis()>serialTime){
+    //https://www.makerguides.com/hc-sr04-arduino-tutorial/
+    // Clear the trigPin by setting it LOW:
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(5);
+    // Trigger the sensor by setting the trigPin high for 10 microseconds:
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+    // Read the echoPin, pulseIn() returns the duration (length of the pulse) in microseconds:
+    distance = pulseIn(echoPin, HIGH, 20000);//timeout in us
+    // Calculate the distance:
+    distance= distance*0.034/2;
+    
+    lux = LightSensor.GetLightIntensity();
+
+    
     if(mpu_detected){
       fabo_9axis.readAccelXYZ(&ax,&ay,&az);
       fabo_9axis.readGyroXYZ(&gx,&gy,&gz);
       fabo_9axis.readMagnetXYZ(&mx,&my,&mz);
       fabo_9axis.readTemperature(&temp);
   
-      mx0=(mx-mx_b)*mx_s; //TRY TO USE OTHER VARS, NOT WRITTEN BY MPU LIB TRY TO USE OTHER VARS, NOT WRITTEN BY MPU LIB
+      mx0=(mx-mx_b)*mx_s; //TRY TO USE OTHER VARS, NOT WRITTEN BY MPU LIB 
       my0=(my-my_b)*my_s;
       mz0=(mz-mz_b)*mz_s;
       /*
@@ -292,5 +343,9 @@ void serialSend(){ //BEWARE OF BUFFER SIZE
   Serial.print(" ");
   Serial.print(alt,2);
   Serial.print(" ");
-  Serial.println(humid,2);
+  Serial.print(humid,2);
+  Serial.print(" ");
+  Serial.print(lux);//no ,2 with int otherwise base 2
+  Serial.print(" ");
+  Serial.println(distance,2);
 }

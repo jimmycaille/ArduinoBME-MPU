@@ -139,15 +139,10 @@ namespace mpu_3d_viewer {
                 enableControls(false);
             }
         }
-
-        double magXmin = 32767, magXmax = -32768, magXbias = 0,
-               magYmin = 32767, magYmax = -32768, magYbias = 0,
-               magZmin = 32767, magZmax = -32768, magZbias = 0;
         
-
-        bool applyMagBias, applyMagScale;
+        
         private void serialThreadFct() {
-            double x, y, z, pitch = 0, roll = 0;
+            double x, y, z, pitch = 0, roll = 0, yaw = 0;
             double xh = 0, yh = 0, zh = 0,
                    xh2 = 0, yh2 = 0;
             while (continueSerialThread) {
@@ -158,91 +153,44 @@ namespace mpu_3d_viewer {
                     if (split.Length == 17) {
                         //update ui
                         Dispatcher.Invoke(new Action(()=> {
+                            double.TryParse(split[0], out x);
+                            double.TryParse(split[1], out y);
+                            double.TryParse(split[2], out z);
+                            double.TryParse(split[6], out xh);
+                            double.TryParse(split[7], out yh);
+                            double.TryParse(split[8], out zh);
 
-                            
-                            //boxes
-                            if (double.TryParse(split[0], out x) &&
-                                double.TryParse(split[1], out y) &&
-                                double.TryParse(split[2], out z)) {
-                                roll = Math.Atan2(-x, Math.Sqrt(y * y + z * z));
-                                //roll = Math.Atan2(y, z);
-                                pitch = Math.Atan2(y, Math.Sqrt(x * x + z * z));
+                            roll = Math.Atan2(-x, Math.Sqrt(y * y + z * z));
+                            pitch = Math.Atan2(y, Math.Sqrt(x * x + z * z));
+                            yh2 = (yh * Math.Cos(roll)) - (zh * Math.Sin(roll));
+                            xh2 = (xh * Math.Cos(pitch)) + (yh * Math.Sin(roll) * Math.Sin(pitch)) + (zh * Math.Cos(roll) * Math.Sin(pitch));
+                            yaw = Math.Atan2(yh2, xh2);
 
-                                txtPitch.Text = (pitch * 57.3).ToString();
-                                txtRoll.Text = (roll * 57.3).ToString();
+                            txtPitch.Text = (pitch * 57.3).ToString();
+                            txtRoll.Text = (roll * 57.3).ToString();
+                            txtYaw.Text = (yaw * 57.3).ToString();
+
+                            if (chkReverseY.IsChecked ?? false) {
+                                angZ = yaw * 57.3;
+                            } else {
+                                angZ = -yaw * 57.3;
                             }
-                            if (double.TryParse(split[6], out xh) &&
-                                double.TryParse(split[7], out yh) &&
-                                double.TryParse(split[8], out zh)) {
-
-
-                                // yaw from mag
-                                yh2 = (yh * Math.Cos(roll)) - (zh * Math.Sin(roll));
-                                xh2 = (xh * Math.Cos(pitch)) + (yh * Math.Sin(roll) * Math.Sin(pitch)) + (zh * Math.Cos(roll) * Math.Sin(pitch));
-
-                                //txtYaw.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
+                            if (chkReverseR.IsChecked ?? false) {
+                                angX = -roll * 57.3;
+                            } else {
+                                angX = roll * 57.3;
                             }
+                            if (chkReverseY.IsChecked ?? false) {
+                                angY = pitch * 57.3;
+                            } else {
+                                angY = -pitch * 57.3;
+                            }
+                            performRotation();
+
                             if (firstConnect) {
                                 firstConnect = false;
                                 //trackSample.Value = Int32.Parse(split[12]);
                             }
-
-                            //mag2
-
-                            if (xh < magXmin) {
-                                magXmin = xh;
-                            }
-                            if (xh > magXmax) {
-                                magXmax = xh;
-                            }
-                            if (yh < magYmin) {
-                                magYmin = yh;
-                            }
-                            if (yh > magYmax) {
-                                magYmax = yh;
-                            }
-                            if (zh < magZmin) {
-                                magZmin = zh;
-                            }
-                            if (zh > magZmax) {
-                                magZmax = zh;
-                            }
-
-                            //https://github.com/kriswiner/MPU6050/wiki/Simple-and-Effective-Magnetometer-Calibration
-
-                            magXbias = (magXmin + magXmax) / 2;
-                            magYbias = (magYmin + magYmax) / 2;
-                            magZbias = (magZmin + magZmax) / 2;
-
-                            double magXscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magXmax - magXmin) / 2);
-                            double magYscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magYmax - magYmin) / 2);
-                            double magZscale = ((magXmax - magXmin) / 2 + (magYmax - magYmin) / 2 + (magZmax - magZmin) / 2) / 3 / ((magZmax - magZmin) / 2);
-                            
-
-                            //apply bias ONLY FOR CHARMAG2, other are raw values !
-                            if (applyMagBias) {
-                                xh -= magXbias;
-                                yh -= magYbias;
-                                zh -= magZbias;
-                            }
-                            if (applyMagScale) {
-
-                                xh *= magXscale;
-                                yh *= magYscale;
-                                zh *= magZscale;
-                            }
-
-                            // yaw2 from mag
-                            yh2 = (yh * Math.Cos(roll)) - (zh * Math.Sin(roll));
-                            xh2 = (xh * Math.Cos(pitch)) + (yh * Math.Sin(roll) * Math.Sin(pitch)) + (zh * Math.Cos(roll) * Math.Sin(pitch));
-
-                            angZ = Math.Atan2(yh2, xh2) * 57.3;
-                            txtYaw.Text = (Math.Atan2(yh2, xh2) * 57.3).ToString();
-
-                            angX = -roll * 57.3;
-                            angY = pitch * 57.3;
-                            performRotation();
-                            
                         }));
                     }
                 } catch {

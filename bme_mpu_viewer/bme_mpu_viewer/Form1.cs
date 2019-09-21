@@ -104,7 +104,7 @@ namespace bme_mpu_viewer {
 
                     String[] split = input.Split(' ');
 
-                    if (split.Length == 17) {
+                    if (split.Length == 19) {
                         //update ui
                         this.Invoke((MethodInvoker)delegate {
                             //boxes
@@ -147,6 +147,9 @@ namespace bme_mpu_viewer {
                             txtPres.Text = split[14];
                             txtAlt.Text = split[15];
                             txtHumid.Text = split[16];
+                            txtLux.Text = split[17];
+                            txtCM.Text  = split[18];
+
                             if (firstConnect) {
                                 firstConnect = false;
                                 txtSample.Text = split[12];

@@ -9,11 +9,11 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Margin="150,10,0,0" >
+        <helix:HelixViewport3D x:Name="viewPort3d" ZoomExtentsWhenLoaded="true" Margin="197,10,0,0" >
             <!-- Remember to add light to the scene -->
             <helix:DefaultLights/>
             <ModelVisual3D x:Name="foo"/>
-            <helix:GridLinesVisual3D Width="300" Length="300" MinorDistance="10" MajorDistance="10" Thickness="0.20"/>
+            <helix:GridLinesVisual3D Width="1000" Length="1000" MinorDistance="50" MajorDistance="50" Thickness="1.00"/>
         </helix:HelixViewport3D>
         <Button x:Name="btnConnect" Content="Connect" HorizontalAlignment="Left" Margin="37,64,0,0" VerticalAlignment="Top" Width="75" Click="BtnConnect_Click"/>
         <ComboBox x:Name="boxCOM" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="0">
@@ -44,5 +44,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="16,116,0,0" TextWrapping="Wrap" Text="pitch" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="16,144,0,0" TextWrapping="Wrap" Text="roll" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="16,172,0,0" TextWrapping="Wrap" Text="yaw" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkReverseP" Content="reverse" HorizontalAlignment="Left" Margin="143,120,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkReverseR" Content="reverse" HorizontalAlignment="Left" Margin="143,148,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkReverseY" Content="reverse" HorizontalAlignment="Left" Margin="143,176,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

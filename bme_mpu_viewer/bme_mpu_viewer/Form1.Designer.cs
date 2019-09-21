@@ -159,6 +159,12 @@
             this.label27 = new System.Windows.Forms.Label();
             this.txtYaw2 = new System.Windows.Forms.TextBox();
             this.btnClearMinMax = new System.Windows.Forms.Button();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.txtLux = new System.Windows.Forms.TextBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.txtCM = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -176,6 +182,8 @@
             this.groupBox11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackSample)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMag2)).BeginInit();
+            this.groupBox12.SuspendLayout();
+            this.groupBox13.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -1483,11 +1491,71 @@
             this.btnClearMinMax.UseVisualStyleBackColor = true;
             this.btnClearMinMax.Click += new System.EventHandler(this.btnClearMinMax_Click);
             // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.label28);
+            this.groupBox12.Controls.Add(this.txtLux);
+            this.groupBox12.Location = new System.Drawing.Point(472, 411);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(144, 75);
+            this.groupBox12.TabIndex = 44;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "BH1750";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(6, 16);
+            this.label28.MinimumSize = new System.Drawing.Size(40, 0);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(40, 13);
+            this.label28.TabIndex = 20;
+            this.label28.Text = "lux";
+            // 
+            // txtLux
+            // 
+            this.txtLux.Location = new System.Drawing.Point(52, 13);
+            this.txtLux.Name = "txtLux";
+            this.txtLux.ReadOnly = true;
+            this.txtLux.Size = new System.Drawing.Size(50, 20);
+            this.txtLux.TabIndex = 21;
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.label29);
+            this.groupBox13.Controls.Add(this.txtCM);
+            this.groupBox13.Location = new System.Drawing.Point(637, 411);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Size = new System.Drawing.Size(155, 75);
+            this.groupBox13.TabIndex = 45;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "HC-SR03";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(6, 16);
+            this.label29.MinimumSize = new System.Drawing.Size(40, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(40, 13);
+            this.label29.TabIndex = 22;
+            this.label29.Text = "cm";
+            // 
+            // txtCM
+            // 
+            this.txtCM.Location = new System.Drawing.Point(52, 13);
+            this.txtCM.Name = "txtCM";
+            this.txtCM.ReadOnly = true;
+            this.txtCM.Size = new System.Drawing.Size(50, 20);
+            this.txtCM.TabIndex = 23;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1380, 823);
+            this.Controls.Add(this.groupBox13);
+            this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.btnClearMinMax);
             this.Controls.Add(this.label27);
             this.Controls.Add(this.txtYaw2);
@@ -1552,6 +1620,10 @@
             this.groupBox11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackSample)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartMag2)).EndInit();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1669,6 +1741,12 @@
         private System.Windows.Forms.TextBox txtYaw2;
         private System.Windows.Forms.CheckBox chkApplyMagCalib;
         private System.Windows.Forms.Button btnClearMinMax;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.TextBox txtLux;
+        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox txtCM;
     }
 }
 
